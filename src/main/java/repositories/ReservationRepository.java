@@ -21,7 +21,7 @@ public interface ReservationRepository extends JpaRepository<Reservation, Intege
 	@Query("select distinct r from Reservation r left join fetch r.vol v where v.idVol=:id")
 	List<Reservation> findByVolId(@Param("id")Integer id);
 	
-	@Query("select distinct r from Reservation r left join fetch r.client c where c.clientName=:nom")
+	@Query("select distinct r from Reservation r left join fetch r.client c where c.nom=:nom")
 	List<Reservation> findByNomClient (@Param("nom")String nom);
 
 	@Query("select distinct r from Reservation r left join fetch r.passager p where p.nom=:nom")	

@@ -12,7 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import model.Client;
+import model.ClientMoral;
 import model.Reservation;
+import service.ClientService;
+import service.PassagerService;
 import service.ReservationService;
 import service.VolService;
 
@@ -26,11 +30,11 @@ public class ReservationController {
 	@Autowired
 	VolService volService;
 	
-//	@Autowired
-//	PassagerService passagerService;
-//	
-//	@Autowired
-//	ClientService clientService;
+	@Autowired
+	PassagerService passagerService;
+	
+	@Autowired
+	ClientService clientService;
 	
 	
 	
@@ -62,28 +66,31 @@ public class ReservationController {
 		return goEdit(new Reservation());
 	}
 	
+
+	
 	private ModelAndView goEdit(Reservation resa) {
 		ModelAndView modelAndView= new ModelAndView("reservation/form", "reservation",resa);
 		modelAndView.addObject("vols",volService.showAll());
-//		modelAndView.addObject("client", clientService.showAll());
-//		modelAndView.addObject("passager", passagerService.showAll());
+		modelAndView.addObject("clients", clientService.showAll());
+		modelAndView.addObject("passagers", passagerService.showAll());
 		return modelAndView;
 	}
 	
 	@PostMapping("/saveReservation")
-	public ModelAndView saveReservation(@Valid @ModelAttribute("reservation") Reservation resa, BindingResult br) {
-		return save(resa,br);
-	}
-	
-	private ModelAndView save(Reservation resa, BindingResult br ) {
+	public ModelAndView saveReservation(@Valid @ModelAttribute("reservation") Reservation resa, BindingResult br, @RequestParam("clientResa") Integer id) {
 		if(br.hasErrors()) {
+			System.out.println(br.getAllErrors());
 			return goEdit(resa);
 		}else {
+			Client client= clientService.showclient(id);
+			resa.setClient(client);
 			resaService.createReservation(resa);
 			return new ModelAndView("redirect:/reservation/");
 		}
-	
+		
 	}
+	
+
 	
 	
 
