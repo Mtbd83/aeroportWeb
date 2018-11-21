@@ -1,6 +1,7 @@
 package service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,9 +29,16 @@ public class PassagerService {
 	}
 
 	public void deletePassagerByName(String name) {
-		List<Passager> passagers=passagerRepository.findByNom(name);
-		for (Passager passager:passagers) {
+		List<Passager> passagers = passagerRepository.findByNom(name);
+		for (Passager passager : passagers) {
 			passagerRepository.delete(passager);
+		}
+	}
+	
+	public void deletePassagerById(Integer idPassager) {
+		Optional<Passager> passagers = passagerRepository.findById(idPassager);
+		if (passagers.isPresent()) {			
+			passagerRepository.deleteById(passagers.get().getIdPassager());
 		}
 	}
 
@@ -55,4 +63,17 @@ public class PassagerService {
 		}
 	}
 
+	public Passager showPassager(Integer idPassager) {
+		Optional<Passager> opt = passagerRepository.findById(idPassager);
+		Passager passager = null;
+		if (opt.isPresent()) {
+			passager = opt.get();
+		}
+		return passager;
+	}
+
+	public List<Passager> showAll() {
+		List<Passager> passagers = passagerRepository.findAll();
+		return passagers;
+	}
 }
