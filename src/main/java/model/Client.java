@@ -190,24 +190,17 @@ public abstract class Client {
 	}
 
 
-
 	public void setVersion(int version) {
 		this.version = version;
 	}
-
-
 
 	public List<Reservation> getReservations() {
 		return reservations;
 	}
 
-
-
 	public void setReservations(List<Reservation> reservations) {
 		this.reservations = reservations;
 	}
-
-
 
 	@Override
 	public int hashCode() {
