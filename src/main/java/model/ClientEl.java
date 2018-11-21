@@ -9,9 +9,12 @@ import javax.persistence.Entity;
 public class ClientEl extends Client {
 	@Column
 	private String titrePhysique;
+	@Column
+	private String prenom;
 
 	public ClientEl() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getTitrePhysique() {
@@ -20,6 +23,14 @@ public class ClientEl extends Client {
 
 	public void setTitrePhysique(String titrePhysique) {
 		this.titrePhysique = titrePhysique;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
 	}
 
 }

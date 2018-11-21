@@ -20,6 +20,7 @@ public class ReservationService {
 	@Autowired
 	private ReservationRepository reservationRepository;
 	
+	
 	public void createReservation(Client client, Passager passager, Vol vol) {
 		if((client != null) & (passager!=null) & (vol!=null)) {
 			Reservation reservation = new Reservation();
@@ -32,6 +33,7 @@ public class ReservationService {
 		}
 
 	}
+	
 	
 	public void deleteReservation(Integer numeroReservation) {
 		reservationRepository.deleteById(numeroReservation);
@@ -76,6 +78,8 @@ public class ReservationService {
 		List<Reservation> list = reservationRepository.findByVolId(idVol);
 		return list;
 	}
+	
+	
 
 	public List<Reservation> showReservationByClient(Client client) {
 		List<Reservation> reservation = reservationRepository.findByClient(client);

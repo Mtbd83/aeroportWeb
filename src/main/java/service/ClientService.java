@@ -1,15 +1,16 @@
 package service;
 
+import java.util.Scanner;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
-
+import model.Adresse;
 import model.Client;
-import model.Reservation;
+import model.Login;
+import model.Titre;
 import repositories.ClientRepository;
-import repositories.ReservationRepository;
 
 @Service
 public class ClientService {
@@ -17,56 +18,58 @@ public class ClientService {
 	@Autowired
 	private ClientRepository clientRepository;
 
-	@Autowired
-	private ReservationRepository reservationRepository;
-	
 	public void createClient(Client client) {
 		if (client != null) {
 			clientRepository.save(client);
 		}
 	}
-	
-	public void deleteClient(Integer idclient){
-		Optional<Client> opt = clientRepository.findById(idclient);
-		if (opt.isPresent()) {
-			Client client = opt.get();
-			List<Reservation> reservations = client.getReservations();
-				for(Reservation resa : reservations){    
-					Optional<Reservation> optResa = reservationRepository.findById(resa.getNumeroReservation());  
-	                if (optResa.isPresent()) { 
-	                	resa.setClient(null);
-	                	reservationRepository.save(resa);              
-	                	}
-				}
-			}
-			clientRepository.deleteById(idclient);
-		}
-	
 
-	
-	public void deleteAllClient() {
-		List<Client> clients = clientRepository.findAll();
-		for(Client client : clients) {
-			deleteClient(client.getIdClient());
-			}
-	} 
-
-	public void deleteClient(Client client) { 
-		deleteClient(client.getIdClient());   
+	public void deleteClient(Client client) {
+		if (client != null) {
+			clientRepository.delete(client);
 		}
-	
-	public List<Client> showAll(){
-		List<Client> clients = clientRepository.findAll();
-		return clients;
 	}
-	
-	public Client showclient(Integer idclient){
-		Optional<Client> opt = clientRepository.findById(idclient);
-		Client client = null;
-		if (opt.isPresent()) {
-			client = opt.get();
+
+	public void deleteClientByName(String name) {
+		List<Client> clients = clientRepository.findByNom(name);
+			for (Client client: clients) {
+			clientRepository.delete(client);
+			}
+	}
+
+	public void modifyClientName(Client client, String name) {
+		if (name != null) {
+			client.setClientName(name);
+			clientRepository.save(client);
 		}
-		return client;
+	}
+
+	public void modifyClientCellNumber(Client client, Integer cellNumber) {
+		if (cellNumber != null) {
+			client.setNumeroTel(cellNumber);
+			clientRepository.save(client);
+		}
+
+	}
+
+	public void modifyClientFaxNumber(Client client, Integer faxNumber) {
+		client.setNumeroFax(faxNumber);
+		clientRepository.save(client);
+	}
+
+	public void modifyClientMail(Client client, String mail) {
+		if (mail != null) {
+			client.setMail(mail);
+			clientRepository.save(client);
+		}
+
+	}
+
+	public void modifyClientAdress(Client client, Adresse adress) {
+		if (adress != null) {
+			client.setAdresse(adress);
+			clientRepository.save(client);
+		}
 	}
 
 }

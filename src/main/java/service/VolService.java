@@ -29,6 +29,8 @@ public class VolService {
 		}
 	}
 	
+	
+	
 	public void deleteVol(Integer idVol){
 		Optional<Vol> opt = volRepository.findVolWithReservation(idVol);
 		if (opt.isPresent()) {
@@ -54,14 +56,20 @@ public class VolService {
 			}
 	} 
 
+
+
 	public void deleteVol(Vol vol) { 
 		deleteVol(vol.getIdVol());   
 		}
+	
+	
+	
 	
 	public List<Vol> showAll(){
 		List<Vol> vols = volRepository.findAll();
 		return vols;
 	}
+	
 	
 	public Vol showVol(Integer idVol){
 		Optional<Vol> opt = volRepository.findById(idVol);
@@ -72,6 +80,7 @@ public class VolService {
 		return vol;
 	}
 	
+	
 	public List<Reservation> showReservationByVol(Integer idVol){
 		Optional<Vol> opt = volRepository.findVolWithReservation(idVol);
 		List<Reservation> reservations = null;
@@ -81,6 +90,7 @@ public class VolService {
 		}
 		return reservations ;	
 	}
+	
 	
 	public List<CompagnieVol> showCompagniesByVol(Integer idVol){
 		Optional<Vol> opt = volRepository.findVolWithCompagniesVol(idVol);

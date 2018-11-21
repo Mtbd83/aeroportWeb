@@ -14,47 +14,49 @@ public class LoginService {
 
 	@Autowired
 	private LoginRepository loginRepository;
-
+	
+	
 	public void CreateLogin(Login login) {
 		loginRepository.save(login);
 	}
-
-	public void changeLogin(String oldLogin, String newLogin) {
-
-		Optional<Login> opt = loginRepository.findWithName(oldLogin);
-		if (opt.isPresent()) {
-			Login login = opt.get();
+	
+	public void changeLogin(String oldLogin,String newLogin) {
+		
+		Optional<Login> opt=loginRepository.findWithName(oldLogin);
+		if( opt.isPresent()){
+			Login login=opt.get();
 			login.setLogin(newLogin);
 			loginRepository.save(login);
 		}
-	}
-
+		}
+		
+		
 	public String showMdp(String login) {
-		Optional<Login> opt = loginRepository.findWithName(login);
-		if (opt.isPresent()) {
-			Login log = opt.get();
-			return log.getMotDePasse();
-		} else {
+		Optional<Login> opt=loginRepository.findWithName(login);
+		if( opt.isPresent()){
+			Login log=opt.get();
+			 return log.getMotDePasse();
+		}else {
 			return "y a rien";
 		}
 	}
-
-	public Login showLogin(Login login) {
-		Optional<Login> opt = loginRepository.findById(login.getId());
-		if (opt.isPresent()) {
-			Login log = opt.get();
-			return log;
-		} else {
-			return null;
-		}
+		
+	public String showLogin(Login login) {
+		Optional<Login> opt=loginRepository.findById(login.getId());
+		if( opt.isPresent()){
+			Login log=opt.get();
+			return log.getLogin();
+	}else {
+		return "y a rien";
 	}
-
+	}
+	
 	public void EraseLogin(Login login) {
 		loginRepository.delete(login);
 	}
-
-	public List<Login> showAllLogin() {
+	
+	public List<Login> showAllLogin(){
 		return loginRepository.findAll();
-
+		
 	}
 }

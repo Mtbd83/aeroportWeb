@@ -6,10 +6,6 @@ public enum Titre {
 	private String titre;
 	
 	private Titre(String titre) {
-		this.titre = titre;
-	}
-
-	public String getTitre() {
-		return titre;
+		
 	}
 }
