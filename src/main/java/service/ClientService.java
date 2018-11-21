@@ -25,7 +25,13 @@ public class ClientService {
 			clientRepository.save(client);
 		}
 	}
+<<<<<<< HEAD
 
+=======
+	
+	
+	
+>>>>>>> master
 	public void deleteclient(Integer idclient){
 		Optional<Client> opt = clientRepository.findById(idclient);
 		if (opt.isPresent()) {
@@ -41,6 +47,7 @@ public class ClientService {
 			}
 			clientRepository.deleteById(idclient);
 		}
+<<<<<<< HEAD
 
 	public void deleteAllclient() {
 		List<Client> clients = clientRepository.findAll();
@@ -48,16 +55,40 @@ public class ClientService {
 			deleteclient(client.getIdClient());
 			}
 	} 
+=======
+	
+
+	
+	public void deleteAllclient() {
+		List<Client> clients = clientRepository.findAll();
+		for(Client client : clients) {
+			deleteclient(client.getIdClient());
+			}
+	} 
+
+
+>>>>>>> master
 
 	public void deleteclient(Client client) { 
 		deleteclient(client.getIdClient());   
 		}
 	
+<<<<<<< HEAD
+=======
+	
+	
+	
+>>>>>>> master
 	public List<Client> showAll(){
 		List<Client> clients = clientRepository.findAll();
 		return clients;
 	}
+<<<<<<< HEAD
 
+=======
+	
+	
+>>>>>>> master
 	public Client showclient(Integer idclient){
 		Optional<Client> opt = clientRepository.findById(idclient);
 		Client client = null;
