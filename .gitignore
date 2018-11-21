@@ -5,3 +5,7 @@ target/**
 .classpath
 .settings/
 .settings/**
+README.md
+web.xml
+mvc-servlet.xml
+resources
