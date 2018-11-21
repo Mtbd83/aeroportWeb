@@ -83,29 +83,18 @@
 			<form:input path="adresse.ville" cssClass="form-control" />
 			<form:errors path="adresse.ville"></form:errors>
 		</div>
-		<c:choose>
-			<c:when test="${client.getClass().simpleName=='ClientEl' }">
-				<div class="form-group">
-					<form:label path="titrePhysique">Titre Physique : </form:label>
-					<form:input path="titrePhysique" cssClass="form-control" />
-					<form:errors path="titrePhysique"></form:errors>
-				</div>
-			</c:when>
-			<c:when test="${client.getClass().simpleName=='ClientMoral' }">
+		<c:if test="${client.getClass().simpleName=='ClientMoral' }">
 				<div class="form-group">
 					<form:label path="titreMoral">Titre Moral : </form:label>
-					<form:input path="titreMoral" cssClass="form-control" />
+					<form:select path="titreMoral" cssClass="form-control" items="${titresM }" itemLabel="titre"/>
 					<form:errors path="titreMoral"></form:errors>
 				</div>
-			</c:when>
-			<c:otherwise>
 				<div class="form-group">
-					<form:label path="titrePhysique">Titre Physique : </form:label>
-					<form:input path="titrePhysique" cssClass="form-control" />
-					<form:errors path="titrePhysique"></form:errors>
+					<form:label path="siret">Siret : </form:label>
+					<form:input path="siret" cssClass="form-control" />
+					<form:errors path="siret"></form:errors>
 				</div>
-			</c:otherwise>
-		</c:choose>
+		</c:if>
 		<div class="form-group">
 			<form:label path="login.login">Login : </form:label>
 			<form:input path="login.login" cssClass="form-control" />
