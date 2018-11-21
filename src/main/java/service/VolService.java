@@ -29,8 +29,7 @@ public class VolService {
 		}
 	}
 	
-	
-	
+
 	public void deleteVol(Integer idVol){
 		Optional<Vol> opt = volRepository.findVolWithReservation(idVol);
 		if (opt.isPresent()) {
@@ -122,6 +121,8 @@ public class VolService {
 		List<Vol> vols = volRepository.findByHeureDepartBetween(date1, date2);
 		return vols;
 	}
+
+	
 
 }
 
