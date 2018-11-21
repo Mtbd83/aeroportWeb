@@ -21,6 +21,16 @@ public class ReservationService {
 	private ReservationRepository reservationRepository;
 	
 	
+	public void createReservation(Reservation resa) {
+		if(resa != null) {
+			Reservation reservation = new Reservation();
+			Date now=new Date();
+			reservationRepository.save(resa);	
+		}
+
+	}
+	
+	
 	public void createReservation(Client client, Passager passager, Vol vol) {
 		if((client != null) & (passager!=null) & (vol!=null)) {
 			Reservation reservation = new Reservation();
