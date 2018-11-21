@@ -7,14 +7,15 @@ import javax.persistence.Entity;
 @Entity
 @DiscriminatorValue("El")
 public class ClientEl extends Client {
+	
 	@Column
 	private String titrePhysique;
+	
 	@Column
 	private String prenom;
 
 	public ClientEl() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getTitrePhysique() {

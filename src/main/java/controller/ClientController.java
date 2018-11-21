@@ -17,7 +17,9 @@ import model.Client;
 import model.ClientEl;
 import model.ClientMoral;
 import model.ClientPhysique;
+import model.Login;
 import service.ClientService;
+import service.LoginService;
 
 @Controller
 @RequestMapping("/client")
@@ -25,6 +27,9 @@ public class ClientController {
 
 	@Autowired
 	private ClientService clientService;
+	
+	@Autowired
+	private LoginService loginService;
 	
 	@RequestMapping("")
 	public ModelAndView home() {
@@ -47,6 +52,7 @@ public class ClientController {
 		ModelAndView modelAndView = new ModelAndView("client/form", "client", client);
 		modelAndView.addObject("titres", Titre.values());
 		modelAndView.addObject("login", client.getLogin());
+		modelAndView.addObject("reservations", client.getReservations());
 		return modelAndView;
 	}
 	
@@ -90,6 +96,9 @@ public class ClientController {
 		if(result.hasErrors()) {
 			return goEdit(client);
 		}
+		Login login = client.getLogin();
+		loginService.CreateLogin(login);
+		clientService.createclient(client);
 		return new ModelAndView("redirect:/client/");
 	}
 	
