@@ -18,7 +18,6 @@ import model.ClientEl;
 import model.ClientMoral;
 import model.ClientPhysique;
 import service.ClientService;
-import service.LoginService;
 
 @Controller
 @RequestMapping("/client")

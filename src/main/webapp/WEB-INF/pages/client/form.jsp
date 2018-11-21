@@ -107,9 +107,9 @@
 			</c:otherwise>
 		</c:choose>
 		<div class="form-group">
-			<form:label path="client.login.login">Login : </form:label>
-			<form:input path="client.login.login" cssClass="form-control" />
-			<form:errors path="client.login.login"></form:errors>
+			<form:label path="client.login">Login : </form:label>
+			<form:input path="client.login" cssClass="form-control" />
+			<form:errors path="client.login"></form:errors>
 		</div>
 		<div class="form-group">
 			<button type="submit" class="btn btn-success">Enregistrer</button>
