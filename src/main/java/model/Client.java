@@ -134,6 +134,10 @@ public class Client {
 		return version;
 	}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> Aurore
 	public void setVersion(int version) {
 		this.version = version;
 	}
@@ -146,6 +150,7 @@ public class Client {
 		this.reservations = reservations;
 	}
 
+<<<<<<< HEAD
 	public Login getLogin() {
 		return login;
 	}
@@ -154,6 +159,8 @@ public class Client {
 		this.login = login;
 	}
 
+=======
+>>>>>>> Aurore
 	@Override
 	public int hashCode() {
 		final int prime = 31;
