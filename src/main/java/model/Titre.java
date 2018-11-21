@@ -17,5 +17,4 @@ public enum Titre {
 		this.titre = titre;
 	}
 	
-	
 }

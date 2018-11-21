@@ -39,7 +39,7 @@ public class ClientController {
 	
 	@GetMapping("/delete")
 	public ModelAndView delete(@RequestParam(name="idClient", required=true) Integer idClient) {
-		clientService.deleteClient(idClient);
+		clientService.deleteclient(idClient);
 		return new ModelAndView("redirect:/client/");
 	}
 	
