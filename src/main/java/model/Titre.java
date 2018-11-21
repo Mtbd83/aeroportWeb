@@ -1,7 +1,7 @@
 package model;
 
 public enum Titre {
-	M("monsieur"), MME("madame"), MLLE("mademoiseille");
+	M("Monsieur"), MME("Madame"), MLLE("Mademoiseille");
 
 	private String titre;
 

@@ -13,11 +13,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.Titre;
+import model.TitreMoral;
 import model.Client;
 import model.ClientEl;
 import model.ClientMoral;
 import model.ClientPhysique;
+import model.Login;
 import service.ClientService;
+import service.LoginService;
+import service.ReservationService;
 
 @Controller
 @RequestMapping("/client")
@@ -25,6 +29,12 @@ public class ClientController {
 
 	@Autowired
 	private ClientService clientService;
+	
+	@Autowired
+	private LoginService loginService;
+	
+	@Autowired
+	private ReservationService reservationService;
 	
 	@RequestMapping("")
 	public ModelAndView home() {
@@ -46,7 +56,9 @@ public class ClientController {
 	private ModelAndView goEdit(Client client) {
 		ModelAndView modelAndView = new ModelAndView("client/form", "client", client);
 		modelAndView.addObject("titres", Titre.values());
+		modelAndView.addObject("titresM", TitreMoral.values());
 		modelAndView.addObject("login", client.getLogin());
+		modelAndView.addObject("reservations", client.getReservations());
 		return modelAndView;
 	}
 	
@@ -54,6 +66,13 @@ public class ClientController {
 	public ModelAndView edit(@RequestParam(name="idClient", required=true) Integer idClient) {
 		Client client = clientService.showclient(idClient);
 		return goEdit(client);
+	}
+	
+	@GetMapping("/reservationsClient")
+	public ModelAndView afficherResa(@RequestParam(name="idClient", required=true) Integer idClient) {
+		Client client = clientService.showclient(idClient);
+		ModelAndView modelAndView = new ModelAndView("client/reservationsClient", "reservations", reservationService.showReservationByClient(client));
+		return modelAndView;
 	}
 	
 	@GetMapping("/addClientEl")
@@ -90,6 +109,9 @@ public class ClientController {
 		if(result.hasErrors()) {
 			return goEdit(client);
 		}
+		Login login = client.getLogin();
+		loginService.CreateLogin(login);
+		clientService.createclient(client);
 		return new ModelAndView("redirect:/client/");
 	}
 	

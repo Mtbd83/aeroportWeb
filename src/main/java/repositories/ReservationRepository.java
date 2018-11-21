@@ -1,7 +1,6 @@
 package repositories;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,7 +13,6 @@ import model.Reservation;
 
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
 
-	
 	List<Reservation> findByClient (Client client);
 	List<Reservation> findByPassager (Passager passager);
 	

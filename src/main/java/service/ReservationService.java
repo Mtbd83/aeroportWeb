@@ -24,10 +24,9 @@ public class ReservationService {
 	public void createReservation(Reservation resa) {
 		if(resa != null) {
 			Reservation reservation = new Reservation();
-			Date now=new Date();
+			Date now = new Date();
 			reservationRepository.save(resa);	
 		}
-
 	}
 	
 	

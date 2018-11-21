@@ -32,6 +32,7 @@
 			<th>Siret</th>
 			<th></th>
 			<th></th>
+			<th></th>
 		</tr>
 		<c:forEach var="client" items="${clients }">
 			<tr>
@@ -54,6 +55,7 @@
 				</td>
 				<td><a class="btn btn-danger" href="./delete?idClient=${client.idClient }">Supprimer</a></td>
 				<td><a class="btn btn-primary" href="./form?idClient=${client.idClient }">Editer</a></td>
+				<td><a class="btn btn-success" href="./reservationsClient?idClient=${client.idClient }">Afficher Réservations</a></td>
 			</tr>
 		</c:forEach>
 	</table>
