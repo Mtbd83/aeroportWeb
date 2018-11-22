@@ -17,6 +17,32 @@
 </head>
 
 <body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/aeroportWeb/reservation"><h4>Reservation</h4> </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/aeroportWeb/client"><h4>Client</h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/aeroportWeb/vol"><h4>Vol</h4></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/aeroportWeb/passager"><h4>Passager</h4></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
 <div class="container">
 <table class="table" style="text-align: center">
 		<tr>
@@ -55,8 +81,8 @@
 				<td>
 					<c:if test="${client.getClass().simpleName=='ClientMoral'}">${client.siret }</c:if>
 				</td>
-				<td><a class="btn btn-danger" href="./delete?idClient=${client.idClient }">Supprimer</a></td>
 				<td><a class="btn btn-primary" href="./form?idClient=${client.idClient }">Editer</a></td>
+				<td><a class="btn btn-danger" href="./delete?idClient=${client.idClient }">Supprimer</a></td>
 				<td><a class="btn btn-success" href="./reservationsClient?idClient=${client.idClient }">Afficher Réservations</a></td>
 			</tr>
 		</c:forEach>
