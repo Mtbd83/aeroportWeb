@@ -65,7 +65,7 @@
 					<form:errors path="adresse.pays"></form:errors>
 				</div>
 				<div>
-					<button class="btn btn-sucess" type="submit">Enregistrer</button>
+					<button type="submit" class="btn btn-success">Enregistrer</button>
 					<a class="btn btn-warning" href="./">Annuler</a>
 				</div>
 			</form:form>

@@ -107,7 +107,7 @@
 		</div>
 		<div class="form-group">
 			<button type="submit" class="btn btn-success">Enregistrer</button>
-			<a class="btn btn-danger" href="./">Annuler</a>
+			<a class="btn btn-warning" href="./">Annuler</a>
 		</div>
 	</form:form>
 </div>

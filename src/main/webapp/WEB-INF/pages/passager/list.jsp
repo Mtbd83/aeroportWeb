@@ -41,7 +41,7 @@
 
 					<td><a class="btn btn-danger"
 						href="./delete?idPassager=${passager.idPassager}">Supprimer</a></td>
-					<td><a class="btn btn-info"
+					<td><a class="btn btn-primary"
 						href="./edit?idPassager=${passager.idPassager}">Editer</a></td>
 
 				</tr>

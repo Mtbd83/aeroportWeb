@@ -41,7 +41,7 @@
 		 </c:forEach>
 
 	</table>
-	<a class="btn btn-success" href="./addReservation"> Nouvelle Reservation</a>
+	<a class="btn btn-info" href="./addReservation"> Nouvelle Reservation</a>
 
 
 </div>

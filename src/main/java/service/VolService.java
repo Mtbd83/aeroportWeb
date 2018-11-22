@@ -1,5 +1,6 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import model.CompagnieVol;
+import model.Passager;
 import model.Reservation;
 import model.Vol;
 import repositories.ReservationRepository;
@@ -79,6 +81,15 @@ public class VolService {
 		return vol;
 	}
 	
+	public List<Passager> showPassagerByVol(Integer idVol){
+		List<Reservation> reservations = showReservationByVol(idVol);
+		List<Passager> passagers = new ArrayList<>();
+		for(Reservation resa : reservations) {
+			Passager p = resa.getPassager();
+			passagers.add(p);
+		}
+		return passagers;
+	}
 	
 	public List<Reservation> showReservationByVol(Integer idVol){
 		Optional<Vol> opt = volRepository.findVolWithReservation(idVol);

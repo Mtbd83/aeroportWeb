@@ -1,5 +1,8 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import model.Passager;
-import model.Reservation;
 import model.Vol;
 import repositories.PassagerRepository;
 import service.ReservationService;
@@ -71,14 +73,12 @@ public class VolController {
 		return save(vol, br);
 	}
 	
-	
-	
-//	@GetMapping("/passager")
-//	public ModelAndView afficherPassager(@RequestParam(name = "numeroReservation" required = true) Reservation reservation) {
-//		ModelAndView modelAndView = new ModelAndView("vol/passager", "reservations", reservation);
-//		modelAndView.addObject("passagers", passagerRepository.findByReservation(reservation.getNumeroReservation()));
-//		return modelAndView;
-//	}
+	@GetMapping("/passagersVol")
+	public ModelAndView afficherPassager(@RequestParam(name = "idVol", required = true) Integer idVol) {
+		List<Passager> passagers = volService.showPassagerByVol(idVol);
+		ModelAndView modelAndView = new ModelAndView("vol/passagersVol", "passagers", passagers);
+		return modelAndView;
+	}
 	
 	public ModelAndView save(Vol vol, BindingResult br) {
 		if(br.hasErrors()) {

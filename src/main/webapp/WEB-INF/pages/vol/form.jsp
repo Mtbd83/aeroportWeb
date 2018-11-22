@@ -42,13 +42,6 @@
 				<form:input path="heureArrivee" type="time" cssClass="timepicker star"/>
 				<form:errors path="heureArrivee"></form:errors>
 			</div>
-			<div class="form-group">
-					<form:label path="passager">Passager</form:label>
-					<form:select path="passager.nom" cssClass="form-control">
-						<form:option value="">Pas de Passager</form:option>
-						<form:options items = "${passagers}" itemLabel="nom" itemValue="idPassager"/>
-					</form:select>
-				</div>
 			<div>
 				<button class="btn btn-success" type="submit">Enregistrer</button>
 				<a class="btn btn-danger" href="./">Annuler</a>
