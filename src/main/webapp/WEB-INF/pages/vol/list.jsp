@@ -34,7 +34,7 @@
 				<td><fmt:formatDate value="${vol.heureArrivee}" type="time" /></td>
 
 				<td><a class="btn btn-info"
-					href="./reservation?idVol=${vol.idVol}">Passager</a></td>
+					href="./passagersVol?idVol=${vol.idVol}">Voir Passagers</a></td>
 				<td><a class="btn btn-danger"
 					href="./delete?idVol=${vol.idVol}">Supprimer</a></td>
 				<td><a class="btn btn-info" href="./edit?idVol=${vol.idVol}">Editer</a></td>
