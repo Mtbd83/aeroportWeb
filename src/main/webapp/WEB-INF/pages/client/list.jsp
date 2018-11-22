@@ -17,6 +17,7 @@
 </head>
 
 <body>
+<div class="container">
 <table class="table" style="text-align: center">
 		<tr>
 			<th>Id</th>
@@ -63,6 +64,7 @@
 	<a class="btn btn-info" href="./addClientEl" >Nouveau Client El</a>
 	<a class="btn btn-info" href="./addClientMoral" >Nouveau Client Moral</a>
 	<a class="btn btn-info" href="./addClientPhysique" >Nouveau Client Physique</a>
+</div>
 </body>
 
 </html>
