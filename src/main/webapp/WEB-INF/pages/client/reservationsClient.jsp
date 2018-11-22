@@ -17,25 +17,27 @@
 </head>
 
 <body>
-<table class="table" style="text-align: center">
-		<tr>
-			<th>Client</th>
-			<th>Numéro Reservation</th>
-			<th>Date Reservation</th>
-			<th>Passager</th>
-			<th>Vol</th>
-		</tr>
-		<c:forEach var="reservation" items="${reservations }">
+<div class="container" >
+	<table class="table" style="text-align: center">
 			<tr>
-				<td>${reservation.client.idClient }</td>
-				<td>${reservation.numeroReservation }</td>
-				<td>${reservation.dateReservation } </td>
-				<td>${reservation.passager.nom }</td>
-				<td>${reservation.vol.idVol }</td>
+				<th>Client</th>
+				<th>Numéro Reservation</th>
+				<th>Date Reservation</th>
+				<th>Passager</th>
+				<th>Vol</th>
 			</tr>
-		</c:forEach>
-	</table>
-	<a class="btn btn-dark" href="./">Retour</a>
+			<c:forEach var="reservation" items="${reservations }">
+				<tr>
+					<td>${reservation.client.idClient }</td>
+					<td>${reservation.numeroReservation }</td>
+					<td>${reservation.dateReservation } </td>
+					<td>${reservation.passager.nom }</td>
+					<td>${reservation.vol.idVol }</td>
+				</tr>
+			</c:forEach>
+		</table>
+		<a class="btn btn-dark" href="./">Retour</a>
+</div>
 </body>
 
 </html>
