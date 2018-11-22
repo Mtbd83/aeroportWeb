@@ -29,10 +29,7 @@ public class VolService {
 		}
 	}
 	
-<<<<<<< HEAD
 
-=======
->>>>>>> c1a881b49321ab5bcfbaeba80c61be10137e665b
 	public void deleteVol(Integer idVol){
 		Optional<Vol> opt = volRepository.findVolWithReservation(idVol);
 		if (opt.isPresent()) {
