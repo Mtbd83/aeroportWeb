@@ -30,49 +30,35 @@
 			<form:input  path="numeroReservation" cssClass="form-control" readonly="true"/>
 		</div>
 		
-		<div class="form-group">
-			<form:label path="dateReservation"> Date Reservation</form:label>
-			<form:input  path="dateReservation" cssClass="form-control" readonly="true"/>
-		</div>
-		
-		
-		<div class="form-group">
-			<form:label path="client.idClient">Id Client</form:label>
-			<form:input path="client.idClient" cssClass="form-control" readonly="true" />
-			<form:errors path="client.idClient"></form:errors>
-		</div>
-		
-		
-			<div class="form-group">
-				<form:label path="client.nom">Nom Client</form:label>
-				<form:input path="client.nom" cssClass="form-control" readonly="true" />
-				<form:errors path="client.nom"></form:errors>
-			</div>
+<!-- 	Ne pouvant pas utiliser un objet abstrait : on passe par du HTML simple  pour le client ! -->
 
-		
 		<div class="form-group">
-			<form:label path="passager.idPassager">Id Passager</form:label>
-			<form:input path="passager.idPassager" cssClass="form-control" readonly="true" />
-			<form:errors path="passager.idPassager"></form:errors>
+			<label for="client"></label>
+			<select id="client" name="clientResa" class="form-control">
+				<c:forEach items="${ clients}" var="client">
+					<option value="${client.idClient}">${client.nom }${client.prenom }</option>
+				</c:forEach>
+			</select>
 		</div>
 		
-<!-- 		<div class="form-group">	 -->
-<%-- 			<form:label path="passager">Passager</form:label> --%>
-<%-- 			<form:select path="passager.nom" cssClass="form-control" > --%>
-<%-- 				<form:option value="">Aucun passager</form:option> --%>
-<%-- 				<form:options items="${passagers}" itemLabel="nom" itemValue="id"/> --%>
-<%-- 			</form:select> --%>
-<%-- 			<form:errors path="vol"></form:errors> --%>
-<!-- 		</div> -->
+		<div class="form-group">	
+			<form:label path="passager">Passager</form:label>
+			<form:select path="passager.idPassager" cssClass="form-control" >
+				<form:option value="">Aucun passager</form:option>
+				<form:options items="${passagers}" itemLabel="nom" itemValue="idPassager"/>
+			</form:select>
+			<form:errors path="passager"></form:errors>
+		</div>
 		
-<!-- 		<div class="form-group"> -->
-<%-- 			<form:label path="vol">Vol</form:label> --%>
-<%-- 			<form:select path="vol.idVol" cssClass="form-control" > --%>
-<%-- 				<form:option value="">Pas de vol</form:option> --%>
-<%-- 				<form:options items="${vols}" itemLabel="idVol" itemValue="idVol"/> --%>
-<%-- 			</form:select> --%>
-<%-- 			<form:errors path="vol"></form:errors> --%>
-<!-- 		</div> -->
+		
+		<div class="form-group">
+			<form:label path="vol">Vol</form:label>
+			<form:select path="vol.idVol" cssClass="form-control" >
+				<form:option value="">Pas de vol</form:option>
+				<form:options items="${vols}" itemLabel="idVol" itemValue="idVol"/>
+			</form:select>
+			<form:errors path="vol"></form:errors>
+		</div>
 		
 		
 		<div>
