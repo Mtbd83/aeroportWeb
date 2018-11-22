@@ -43,7 +43,8 @@
 				<td>${client.numeroTel }</td>
 				<td>${client.numeroFax }</td>
 				<td>${client.mail }</td>
-				<td>${client.adresse.numero } ${client.adresse.rue } ${client.adresse.codePostal } ${client.adresse.ville }</td>
+				<td>${client.adresse.numero } ${client.adresse.rue } ${client.adresse.codePostal } 
+				${client.adresse.ville } ${client.adresse.pays }</td>
 				<td>${client.login.login }</td>
 				<td>
 					<c:if test="${client.getClass().simpleName=='ClientEl'}">${client.titrePhysique }</c:if>

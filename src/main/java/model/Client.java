@@ -63,7 +63,8 @@ public abstract class Client {
 	@AttributeOverrides({ @AttributeOverride(name = "rue", column = @Column(name = "rue", length = 20)),
 			@AttributeOverride(name = "codePostal", column = @Column(name = "code_postal", length = 20)),
 			@AttributeOverride(name = "ville", column = @Column(name = "ville", length = 20)),
-			@AttributeOverride(name = "numero", column = @Column(name = "numero", length = 20)) })
+			@AttributeOverride(name = "numero", column = @Column(name = "numero", length = 20)),
+			@AttributeOverride(name = "pays", column = @Column(name = "pays", length = 20))})
 	private Adresse adresse;
 
 	@Version

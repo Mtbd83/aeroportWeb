@@ -83,6 +83,11 @@
 			<form:input path="adresse.ville" cssClass="form-control" />
 			<form:errors path="adresse.ville"></form:errors>
 		</div>
+		<div class="form-group">
+			<form:label path="adresse.pays">Pays : </form:label>
+			<form:input path="adresse.pays" cssClass="form-control" />
+			<form:errors path="adresse.pays"></form:errors>
+		</div>
 		<c:if test="${client.getClass().simpleName=='ClientMoral' }">
 				<div class="form-group">
 					<form:label path="titreMoral">Titre Moral : </form:label>
