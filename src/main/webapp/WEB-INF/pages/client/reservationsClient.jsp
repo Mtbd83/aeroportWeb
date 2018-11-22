@@ -28,10 +28,10 @@
 		<c:forEach var="reservation" items="${reservations }">
 			<tr>
 				<td>${reservation.numeroReservation }</td>
-				<td>${reservation.dateReservation }</td>
-				<td>${reservation.client }</td>
-				<td>${reservation.passager }</td>
-				<td>${reservation.vol }</td>
+				<td>${reservation.dateReservation } </td>
+				<td>${reservation.client.idClient }</td>
+				<td>${reservation.passager.nom }</td>
+				<td>${reservation.vol.idVol }</td>
 			</tr>
 		</c:forEach>
 	</table>
