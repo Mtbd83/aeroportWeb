@@ -9,8 +9,7 @@ import model.Passager;
 public interface PassagerRepository extends JpaRepository<Passager, Integer>{
 
 	List<Passager> findByNom(String nom);
-	List<Passager> findByReservation(Integer numeroReservation);
 	
-	
-	
+	List<Passager> findByReservations(Integer numeroReservation);
+
 }
